@@ -1,0 +1,27 @@
+kind: project
+metadata:
+  name: spark-pipeline
+  created: '2021-12-14T19:31:48.308000+00:00'
+spec:
+  functions:
+  - url: components/get_data.py
+    name: get-data
+    kind: job
+    image: mlrun/mlrun
+  - url: components/spark_read_csv.py
+    name: spark-read-csv
+    kind: remote-spark
+    image: .mlrun/func-spark-pipeline-build-image:latest
+  workflows:
+  - name: main
+    path: pipelines/training_pipeline.py
+    engine: null
+  artifacts: []
+  source: ''
+  subpath: ''
+  origin_url: ''
+  desired_state: online
+  owner: nick
+  disable_auto_mount: false
+status:
+  state: online

@@ -8,7 +8,7 @@ spec:
     name: get-data
     kind: job
     image: mlrun/mlrun
-  - url: components/spark_read_csv.py
+  - url: components/spark_read_csv.ipynb
     name: spark-read-csv
     kind: remote-spark
     image: .mlrun/func-spark-pipeline-build-image:latest
